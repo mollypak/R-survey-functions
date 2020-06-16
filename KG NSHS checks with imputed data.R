@@ -1,5 +1,5 @@
 
-
+##This function preforms checks to make sure Korn and Graubbard confidence intervals meet the NCHS standards for presenting proportion estimates
 propschecks_mi<-function(data, design,variab, outcome){
   uni<-sort(unique(data[,variab]))
   for(i in 1:length(uni)){
