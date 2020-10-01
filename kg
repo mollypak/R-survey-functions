@@ -1,0 +1,16 @@
+kg<-function(formula, design){
+  m <- eval(bquote(MIcombine(with(design, exp=svymean(~as.numeric(.(formula[[2]])), na.rm=TRUE)))))
+  
+  
+  n.eff <- coef(m) * (1 - coef(m))/vcov(m)
+  rval <- coef(m)[1]
+  attr(rval, "var") <- vcov(m)
+  alpha <- 1 - 0.95
+  n.eff <- n.eff * (qt(alpha/2, nrow(design) - 1)/qt(alpha/2, 
+                                                     degf(design[[1]][[1]])))^2
+  ci <- c(qbeta(alpha/2, n.eff * rval, n.eff * (1 - rval) + 
+                  1), qbeta(1 - alpha/2, n.eff * rval + 1, n.eff * 
+                              (1 - rval)))
+  
+
+}
