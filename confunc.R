@@ -1,3 +1,5 @@
+#linear contrasts for multiply imputed predictive margins
+
 confunc<-function(contrasts,stat){
   
   exprlist <- list(contrast = contrasts)
