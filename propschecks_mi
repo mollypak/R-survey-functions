@@ -1,5 +1,7 @@
 
-##This function preforms checks to make sure Korn and Graubbard confidence intervals meet the NCHS standards for presenting proportion estimates
+##This function preforms checks to make sure Korn and Graubbard confidence intervals meet the NCHS standards for presenting proportion estimates for data that has been multiply imputed
+#inputs are data, survey design, stratifying variable of interest, and outcome
+#goal is to check absolute and relative confidence interval width, degrees of freedom, 0 events
 propschecks_mi<-function(data, design,variab, outcome){
   uni<-sort(unique(data[,variab]))
   for(i in 1:length(uni)){
