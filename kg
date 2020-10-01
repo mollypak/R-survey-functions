@@ -1,3 +1,5 @@
+#Calculates Korn and Graubard confidence intervals for multiply imputed survey data
+
 kg<-function(formula, design){
   m <- eval(bquote(MIcombine(with(design, exp=svymean(~as.numeric(.(formula[[2]])), na.rm=TRUE)))))
   
