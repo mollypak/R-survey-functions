@@ -1,3 +1,5 @@
+#inputs are data, survey design, stratifying variable of interest, and outcome
+#goal is to check absolute and relative confidence interval width, degrees of freedom, 0 events
 propschecks<-function(data, design,variab, outcome){
   uni<-sort(unique(data[,variab]))
   for(i in 1:length(uni)){
