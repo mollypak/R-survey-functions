@@ -1,0 +1,11 @@
+#banard and rubin t score alteration for multiply imputed data
+#Barnard, J., and D. B. Rubin. 1999. “Small-Sample Degrees of Freedom with Multiple Imputation.” Biometrika 86 (4): 948–55
+
+
+barnard.rubin <- function(m, b, t, dfcom = 999999) {
+  lambda <- (1 + 1 / m) * b / t
+  lambda[lambda < 1e-04] <- 1e-04
+  dfold <- (m - 1) / lambda ^ 2
+  dfobs <- (dfcom + 1) / (dfcom + 3) * dfcom * (1 - lambda)
+  dfold * dfobs / (dfold + dfobs)
+}
