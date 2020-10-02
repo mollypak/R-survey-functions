@@ -19,7 +19,7 @@ propschecks_mi<-function(data, design,variab, outcome){
     lowe<-kg(~iggpos,subset(design,get(variab)==uni[i]))[1]
     wid<-upp-lowe
     if(wid>0.30) print.noquote(paste('absolute CI width >0.30 for',variab,"=",uni[i],"!SUPRESS!,absolute CI width=",wid))
-    if((wid/val)>1.30) print.noquote(paste('relative CI width >1.30 for',variab,"=",uni[i],"!SUPRESS!,absolute CI width=",wid/val))
+    if((wid/val)>1.30) print.noquote(paste('relative CI width >1.30 for',variab,"=",uni[i],"!SUPRESS!,relative CI width=",wid/val))
     
     
   }
