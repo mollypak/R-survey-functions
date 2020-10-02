@@ -17,7 +17,7 @@ propschecks<-function(data, design,variab, outcome){
   lowe<-attributes(svyciprop(formula(paste("~",outcome)), subset(design,get(variab)==uni[i]), na.rm=TRUE, method="beta"))$ci[1]
   wid<-upp-lowe
   if(wid>0.30) print.noquote(paste('absolute CI width >0.30 for',variab,"=",uni[i],"!SUPRESS!,absolute CI width=",wid))
-  if((wid/val)>1.30) print.noquote(paste('relative CI width >1.30 for',variab,"=",uni[i],"!SUPRESS!,absolute CI width=",wid/val))
+  if((wid/val)>1.30) print.noquote(paste('relative CI width >1.30 for',variab,"=",uni[i],"!SUPRESS!,relative CI width=",wid/val))
   if(degf(design)<8) print.noquote("Degrees of freesdom less than 8")
   if(wid<0.05 &(degf(design)<8|table(data_full[,variab])[i]==0)) print.noquote(paste('absolute width <0.05 for',variab,"=",uni[i],"and either df<8 or 0 events, !FLAGGED!"))
   
